@@ -1,0 +1,23 @@
+cc_library_shared {
+    name: "libinih",
+    srcs: ["ini.c"],
+    export_include_dirs: ["."],
+    vendor_available: true,
+}
+
+cc_library_shared {
+    name: "libinih-cpp",
+    srcs: ["ini.c", "cpp/INIReader.cpp"],
+    export_include_dirs: ["."],
+    vendor_available: true,
+}
+
+cc_library_headers {
+    name: "libinih_headers",
+    export_include_dirs: ["."],
+}
+
+cc_library_headers {
+    name: "libinih-cpp_headers",
+    export_include_dirs: ["cpp"],
+}
