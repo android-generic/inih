@@ -1,3 +1,7 @@
+// Copyright (C) 2009-2025, Ben Hoyt
+// Copyright (C) 2026 BlissLabs
+// SPDX-License-Identifier: BSD-3-Clause
+
 cc_library_shared {
     name: "libinih",
     srcs: ["ini.c"],
@@ -7,17 +11,20 @@ cc_library_shared {
 
 cc_library_shared {
     name: "libinih-cpp",
-    srcs: ["ini.c", "cpp/INIReader.cpp"],
+    srcs: ["cpp/INIReader.cpp"],
+    shared_libs: ["libinih"],
+    export_include_dirs: [".", "cpp"],
+    vendor_available: true,
+}
+
+cc_library_headers {
+    name: "inih_headers",
     export_include_dirs: ["."],
     vendor_available: true,
 }
 
 cc_library_headers {
-    name: "libinih_headers",
-    export_include_dirs: ["."],
-}
-
-cc_library_headers {
     name: "libinih-cpp_headers",
-    export_include_dirs: ["cpp"],
+    export_include_dirs: [".", "cpp"],
+    vendor_available: true,
 }
